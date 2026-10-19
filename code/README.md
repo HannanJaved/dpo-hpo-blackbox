@@ -1,9 +1,9 @@
 # Construction code
 
 Python used to clean the checkpoint grid, fit continuous surrogates, and run
-five Syne Tune optimizers. Released **tables** and **traces** under `../data`
-and `../traces` are enough for most users; this directory is for reproduction
-and extension.
+five [Syne Tune](https://github.com/syne-tune/syne-tune) optimizers. Released
+**tables** and **traces** under `../data` and `../traces` are enough for most
+users; this directory is for reproduction and extension.
 
 ## Setup
 

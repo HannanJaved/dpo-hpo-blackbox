@@ -6,7 +6,7 @@ Use this repository to:
 
 - load a ready-made `(lr, β, fidelity) → benchmark scores` grid
 - compare HPO methods on released search traces
-- rebuild blackbox tables or (optionally) re-run Syne Tune simulations
+- rebuild blackbox tables or (optionally) re-run [Syne Tune](https://github.com/syne-tune/syne-tune) simulations
 
 **Repo size:** ~425 MB (mostly gzipped traces). Clone with Git; no LFS required.
 
@@ -51,7 +51,7 @@ python code/quickstart_check.py
 |---|---|
 | `data/` | Checkpoint grids (core artifact): raw + blackbox CSVs |
 | `traces/` | Qwen3 informed-protocol HPO search logs (gzipped) |
-| `code/` | Blackbox construction, surrogates, Syne Tune runners |
+| `code/` | Blackbox construction, surrogates, [Syne Tune](https://github.com/syne-tune/syne-tune) runners |
 | `protocol.json` | HPO settings (ASHA rungs, budgets, seeds, …) |
 | `manifest.json` | Per-size config / fidelity counts |
 | `traces_manifest.json` | Per-trace paths, row counts, objectives |
@@ -61,8 +61,8 @@ python code/quickstart_check.py
 
 ### Checkpoint schedules
 
-- **Dolci-Instruct-DPO (default blackbox):** each `(lr, β)` is scored at DPO steps 200, 400, …, 2000 and the final checkpoint (~2031). Cost is `elapsed_time_sec` from that run’s trainer runtime.
-- **UltraFeedback** (`qwen3_*_ultrafeedback_*.csv`): shorter schedule (steps 48, 96, …, 432 and final ~478). These files include `dataset=ultrafeedback_binarized` and are **not** mixed into `all_checkpoints_*.csv`.
+- **[Dolci-Instruct-DPO](https://huggingface.co/datasets/allenai/Dolci-Instruct-DPO) (default blackbox):** each `(lr, β)` is scored at DPO steps 200, 400, …, 2000 and the final checkpoint (~2031). Cost is `elapsed_time_sec` from that run’s trainer runtime.
+- **[UltraFeedback](https://huggingface.co/datasets/argilla/ultrafeedback-binarized-preferences)** (`qwen3_*_ultrafeedback_*.csv`): shorter schedule (steps 48, 96, …, 432 and final ~478). These files include `dataset=ultrafeedback_binarized` and are **not** mixed into `all_checkpoints_*.csv`.
 
 ## Layout detail
 
@@ -120,12 +120,12 @@ One row per blackbox query. Optimizers: RandomSearch, TPE, CQR, ASHA, BOHB. Sear
 Raw keeps missing evals as empty. Blackbox drops incomplete `(lr, β)` trajectories, fills rare gaps, and adds Z-* composites for HPO objectives.
 
 **Dolci-Instruct-DPO vs UltraFeedback?**  
-Default tables use Dolci-Instruct-DPO. UltraFeedback files are a separate preference dataset and shorter training schedule; use them only when you intend that setting.
+Default tables use [Dolci-Instruct-DPO](https://huggingface.co/datasets/allenai/Dolci-Instruct-DPO). [UltraFeedback](https://huggingface.co/datasets/argilla/ultrafeedback-binarized-preferences) files are a separate preference dataset and shorter training schedule; use them only when you intend that setting.
 
 **Why no Llama traces?**  
 Released HPO traces cover the Qwen3 informed continuous-surrogate study. Llama appears in the checkpoint tables only (`protocol.json`: `llama_in_tables_only`).
 
-**Do I need Syne Tune to use the dataset?**  
+**Do I need [Syne Tune](https://github.com/syne-tune/syne-tune) to use the dataset?**  
 No. Tables and traces are plain CSV/CSV.GZ. Syne Tune is only needed to rebuild serialized blackboxes or re-run simulations.
 
 ## Citation
