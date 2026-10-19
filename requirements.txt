@@ -1,0 +1,8 @@
+# Core: load tables / traces and rebuild blackbox CSVs
+pandas>=2.0
+numpy>=1.24
+
+# Optional: serialize Syne Tune blackboxes, fit surrogates, re-run HPO simulations
+syne-tune>=0.13
+scikit-learn>=1.3
+matplotlib>=3.7

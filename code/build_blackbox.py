@@ -166,7 +166,7 @@ def main() -> None:
     serialize(
         {paths.blackbox_key: blackbox},
         path=str(paths.blackbox_dir),
-        metadata={"size_key": args.size, "family": args.family, "source": f"ICLR27 {args.family} DPO-AO sweep"},
+        metadata={"size_key": args.size, "family": args.family, "source": f"{args.family} DPO-AO sweep"},
     )
     config_map.to_csv(paths.config_map_csv, index=False)
     print(f"Serialized blackbox to: {paths.blackbox_dir}")

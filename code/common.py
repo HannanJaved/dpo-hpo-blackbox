@@ -8,10 +8,9 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-ANON_ROOT = Path(__file__).resolve().parent.parent
-HERE = ANON_ROOT / "work"
+REPO_ROOT = Path(__file__).resolve().parent.parent
+HERE = REPO_ROOT / "work"
 HERE.mkdir(parents=True, exist_ok=True)
-SOURCE_HPO = ANON_ROOT
 
 SIZE_KEYS = ["0.6b", "1.7b", "4b", "8b", "14b"]
 SIZE_KEYS_BY_FAMILY = {
@@ -76,7 +75,7 @@ def get_paths(size_key: str, budget_tag: str = DEFAULT_BUDGET_TAG, family: str =
         family=family,
         budget_tag=budget_tag,
         size_dir=size_dir,
-        grid_csv=ANON_ROOT / "data" / f"{family}_{size_key}_raw.csv",
+        grid_csv=REPO_ROOT / "data" / f"{family}_{size_key}_raw.csv",
         blackbox_dir=size_dir / "blackbox" / f"{family}-{size_key}-dpo-ao",
         blackbox_key=f"{family}-{size_key}-dpo-ao",
         config_map_csv=size_dir / "blackbox" / f"{family}-{size_key}-dpo-ao-config-map.csv",

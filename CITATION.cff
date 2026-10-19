@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: If you use this dataset, please cite it using the metadata below.
+title: "DPO-HPO Blackbox: Offline Multi-Fidelity Benchmarks for DPO Hyperparameter Selection"
+type: dataset
+authors:
+  - family-names: Javed
+    given-names: Hannan
+  - family-names: Salinas
+    given-names: David
+  - family-names: Golebiowski
+    given-names: Jacek
+  - family-names: Klein
+    given-names: Aaron
+version: "1.0.0"
+date-released: "2026-10-19"
+license: CC-BY-4.0
+repository-code: "https://github.com/HannanJaved/dpo-hpo-blackbox"
+url: "https://github.com/HannanJaved/dpo-hpo-blackbox"
+# Uncomment after the arXiv upload:
+# identifiers:
+#   - type: arxiv
+#     value: "YYMM.NNNNN"
+abstract: >
+  Offline multi-fidelity blackbox for DPO hyperparameter selection (learning rate
+  and β), including checkpoint evaluation tables, construction code, and HPO
+  simulation traces for Qwen3 and Llama model sizes. Preference settings:
+  Dolci-Instruct-DPO (default) and UltraFeedback.
+keywords:
+  - DPO
+  - hyperparameter optimization
+  - blackbox benchmark
+  - multi-fidelity
+  - large language models
