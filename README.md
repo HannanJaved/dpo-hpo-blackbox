@@ -135,7 +135,7 @@ If you use this dataset, please cite (BibTeX also in [`CITATION.cff`](CITATION.c
 ```bibtex
 @misc{dpo-hpo-blackbox,
   title        = {DPO-HPO Blackbox: Offline Multi-Fidelity Benchmarks for DPO Hyperparameter Selection},
-  author       = {Javed, Hannan and Salinas, David and Golebiowski, Jacek and Klein, Aaron},
+  author       = {Mahadik, Hannan and Salinas, David and Golebiowski, Jacek and Klein, Aaron},
   year         = {2026},
   howpublished = {\url{https://github.com/HannanJaved/dpo-hpo-blackbox}}
 }
